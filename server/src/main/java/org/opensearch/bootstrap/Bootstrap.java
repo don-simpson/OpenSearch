@@ -372,13 +372,13 @@ final class Bootstrap {
         try {
             LogConfigurator.configure(environment);
         } catch (IOException e) {
-            throw new BootstrapException(e);
+            // throw new BootstrapException(e);
         }
         if (environment.pidFile() != null) {
             try {
                 PidFile.create(environment.pidFile(), true);
             } catch (IOException e) {
-                throw new BootstrapException(e);
+                // throw new BootstrapException(e);
             }
         }
 
