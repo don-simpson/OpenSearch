@@ -71,6 +71,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.Exception;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -371,13 +372,13 @@ final class Bootstrap {
         LogConfigurator.setNodeName(Node.NODE_NAME_SETTING.get(environment.settings()));
         try {
             LogConfigurator.configure(environment);
-        } catch (IOException e) {
+        } catch (Exception e) {
             // throw new BootstrapException(e);
         }
         if (environment.pidFile() != null) {
             try {
                 PidFile.create(environment.pidFile(), true);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 // throw new BootstrapException(e);
             }
         }
